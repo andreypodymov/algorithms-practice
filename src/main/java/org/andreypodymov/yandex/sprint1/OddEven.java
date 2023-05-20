@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class OddEven {
-    public static String isSameOddEven(List<Integer> list) {
+    public static boolean isSameOddEven(List<Integer> list) {
         int oddCount = 0;
         int evenCount = 0;
         for (Integer i : list) {
@@ -19,15 +19,13 @@ public class OddEven {
                 oddCount++;
             }
         }
-        if (oddCount == 0 || evenCount == 0) {
-            return "WIN";
-        }
-        return "FAIL";
+        return oddCount == 0 || evenCount == 0;
     }
 
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
-            System.out.println(isSameOddEven(readList(reader)));
+            String stringResult = isSameOddEven(readList(reader)) ? "WIN" : "FAIL";
+            System.out.println(stringResult);
         }
     }
 
