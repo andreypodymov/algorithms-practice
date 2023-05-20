@@ -1,7 +1,12 @@
-package utils;
+package org.andreypodymov.utils;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 import java.util.concurrent.ThreadLocalRandom;
+import java.util.stream.Collectors;
 
 /**
  * @author Andrei Podymov <arpodymov@gmail.com>
@@ -25,6 +30,17 @@ public class ArrayUtils {
             array[i] = c;
         }
         return array;
+    }
+
+    public static int readInt(BufferedReader reader) throws IOException {
+        return Integer.parseInt(reader.readLine());
+    }
+
+    public static List<Integer> readList(BufferedReader reader) throws IOException {
+        return  Arrays.asList(reader.readLine().split(" "))
+                .stream()
+                .map(elem -> Integer.parseInt(elem))
+                .collect(Collectors.toList());
     }
 
     public static boolean isArraySorted(Integer[] arr) {

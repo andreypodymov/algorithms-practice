@@ -1,8 +1,5 @@
-package sorting;
+package org.andreypodymov.sorting;
 
-/**
- * @author Andrei Podymov <arpodymov@gmail.com>
- */
 public class CountingSort implements ArraySort <Integer> {
 
     @Override

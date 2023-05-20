@@ -1,4 +1,4 @@
-package codeforces;
+package org.andreypodymov.codeforces;
 
 import java.util.*;
 /* https://codeforces.com/problemset/problem/4/C

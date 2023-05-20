@@ -1,7 +1,6 @@
-package leetcode;
+package org.andreypodymov.leetcode;
 
 /**
- * @author Andrei Podymov <arpodymov@gmail.com>
  *
  *   https://leetcode.com/explore/learn/card/recursion-i/250/principle-of-recursion/1440/
  *   Write a function that reverses a string. The input string is given as an array of characters s.

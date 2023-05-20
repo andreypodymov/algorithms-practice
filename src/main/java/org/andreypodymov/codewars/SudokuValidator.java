@@ -1,4 +1,4 @@
-package codewars;
+package org.andreypodymov.codewars;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -13,7 +13,6 @@ Write a function validSolution/ValidateSolution/valid_solution() that accepts a 
 
 The board is always 9 cells by 9 cells, and every cell only contains integers from 0 to 9.
  */
-
 public class SudokuValidator {
 
     public static boolean check(int[][] sudoku) {

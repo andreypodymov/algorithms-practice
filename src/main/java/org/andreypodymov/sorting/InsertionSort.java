@@ -1,4 +1,4 @@
-package sorting;
+package org.andreypodymov.sorting;
 
 /**
  * @author Andrei Podymov <arpodymov@gmail.com>

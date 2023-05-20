@@ -1,4 +1,4 @@
-package yandex.sprint0;
+package org.andreypodymov.yandex.sprint0;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -36,7 +36,6 @@ public class MovingAverage {
             }
         }
     }
-
 
     private static int readInt(BufferedReader reader) throws IOException {
         return Integer.parseInt(reader.readLine());

@@ -1,4 +1,4 @@
-package yandex.sprint0;
+package org.andreypodymov.yandex.sprint0;
 
 import java.io.BufferedReader;
 import java.io.IOException;

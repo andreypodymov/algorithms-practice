@@ -1,8 +1,4 @@
-package codewars;
-
-/**
- * @author Andrei Podymov <arpodymov@gmail.com>
- */
+package org.andreypodymov.codewars;
 /*
     For a given string s find the character c (or C) with longest consecutive repetition and return.
     https://www.codewars.com/kata/586d6cefbcc21eed7a001155/train/java

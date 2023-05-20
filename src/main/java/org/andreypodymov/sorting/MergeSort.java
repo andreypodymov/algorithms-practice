@@ -1,8 +1,5 @@
-package sorting;
+package org.andreypodymov.sorting;
 
-/**
- * @author Andrei Podymov <arpodymov@gmail.com>
- */
 public class MergeSort implements ArraySort <Integer> {
 
     @Override
