@@ -6,9 +6,9 @@ import java.util.StringTokenizer;
 import java.util.stream.Collectors;
 
 /*
-    run-report: 87561050
-    problem: 22450
-    author: Andrei Podymov
+    run-report: 87563120
+    contest: 22450. Sprint 1 final A
+    author: arpodymov
  */
 
 public class NearestZero {
