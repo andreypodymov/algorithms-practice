@@ -37,6 +37,10 @@ public class ArrayUtils {
         return Integer.parseInt(reader.readLine());
     }
 
+    private static String readString(BufferedReader reader) throws IOException {
+        return reader.readLine();
+    }
+
     private static int[] readIntArray(BufferedReader reader, int size) throws IOException {
         int[] result = new int[size];
         StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
