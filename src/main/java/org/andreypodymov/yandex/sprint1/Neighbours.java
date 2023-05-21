@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class Neighbours {
 
-    public static List<Integer> neighbours(int[][] matrix, int n, int m, int y, int x) {
+    public static List<Integer> solve(int[][] matrix, int n, int m, int y, int x) {
         List<Integer> result = new ArrayList<>();
         if (y - 1 >= 0) {
             result.add(matrix[y-1][x]);
@@ -40,7 +40,7 @@ public class Neighbours {
             }
             int y = readInt(reader);
             int x = readInt(reader);
-            List<String> resultList = neighbours(matrix, n, m, y, x)
+            List<String> resultList = solve(matrix, n, m, y, x)
                     .stream().map(Object::toString).collect(Collectors.toList());
             System.out.println(String.join(" ", resultList));
         }

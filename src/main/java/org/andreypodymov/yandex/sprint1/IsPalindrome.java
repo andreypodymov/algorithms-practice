@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class IsPalindrome {
-    public static boolean isPalindrome(String value) {
+    public static boolean solve(String value) {
         String prepared = value.replaceAll("[^A-Za-z]+","").toLowerCase();
         char[] chars = prepared.toCharArray();
         int length = chars.length;
@@ -21,7 +21,7 @@ public class IsPalindrome {
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             String str = readString(reader);
-            String strResult = isPalindrome(str) ? "True" : "False";
+            String strResult = solve(str) ? "True" : "False";
             System.out.println(strResult);
         }
     }

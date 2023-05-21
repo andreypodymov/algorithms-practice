@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class СhaoticWeather {
-    public static int chaoticWeather(List<Integer> values) {
+    public static int solve(List<Integer> values) {
         int result = 0;
         if (values.size() <= 1) {
             return 1;
@@ -33,7 +33,7 @@ public class СhaoticWeather {
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             readInt(reader);
-            System.out.println(chaoticWeather(readList(reader)));
+            System.out.println(solve(readList(reader)));
         }
     }
 

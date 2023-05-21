@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
+import java.util.StringTokenizer;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.stream.Collectors;
 
@@ -14,8 +15,8 @@ import java.util.stream.Collectors;
 public class ArrayUtils {
     private ArrayUtils() {}
 
-    public static Integer[] generateRandomArray(int n, int min, int max) {
-        Integer array[] = new Integer[n];
+    public static int[] generateRandomArray(int n, int min, int max) {
+        int array[] = new int[n];
         for (int i = 0; i < n; i++) {
             array[i] = ThreadLocalRandom.current().nextInt(min, max + 1);
         }
@@ -32,14 +33,22 @@ public class ArrayUtils {
         return array;
     }
 
-    public static int readInt(BufferedReader reader) throws IOException {
+    private static int readInt(BufferedReader reader) throws IOException {
         return Integer.parseInt(reader.readLine());
     }
 
-    public static List<Integer> readList(BufferedReader reader) throws IOException {
-        return  Arrays.asList(reader.readLine().split(" "))
-                .stream()
-                .map(elem -> Integer.parseInt(elem))
+    private static int[] readIntArray(BufferedReader reader, int size) throws IOException {
+        int[] result = new int[size];
+        StringTokenizer tokenizer = new StringTokenizer(reader.readLine());
+        for (int i = 0; i < size; ++i) {
+            result[i] = Integer.parseInt(tokenizer.nextToken());
+        }
+        return result;
+    }
+
+    public static List<Integer> readIntList(BufferedReader reader) throws IOException {
+        return  Arrays.stream(reader.readLine().split(" "))
+                .map(Integer::parseInt)
                 .collect(Collectors.toList());
     }
 

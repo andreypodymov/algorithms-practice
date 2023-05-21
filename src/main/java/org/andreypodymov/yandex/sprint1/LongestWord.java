@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class LongestWord {
-    public static void longestWord(List<String> words) {
+    public static void solve(List<String> words) {
         int maxLength = 0;
         String maxWord = "";
         for (String word : words) {
@@ -25,7 +25,7 @@ public class LongestWord {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             readInt(reader);
             List<String> str = readList(reader);
-            longestWord(str);
+            solve(str);
         }
     }
 
