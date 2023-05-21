@@ -18,6 +18,7 @@ public class FunctionValue {
             System.out.println(functionValue(readList.get(0), readList.get(1), readList.get(2), readList.get(3)));
         }
     }
+
     private static List<Integer> readList(BufferedReader reader) throws IOException {
         return Arrays.asList(reader.readLine().split(" "))
                 .stream()

@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Neighbours {
+
     public static List<Integer> neighbours(int[][] matrix, int n, int m, int y, int x) {
         List<Integer> result = new ArrayList<>();
         if (y - 1 >= 0) {
@@ -27,6 +28,7 @@ public class Neighbours {
         Collections.sort(result);
         return result;
     }
+
     public static void main(String[] args) throws IOException {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))) {
             int n = readInt(reader);
@@ -43,9 +45,11 @@ public class Neighbours {
             System.out.println(String.join(" ", resultList));
         }
     }
+
     private static int readInt(BufferedReader reader) throws IOException {
         return Integer.parseInt(reader.readLine());
     }
+
     private static List<Integer> readList(BufferedReader reader) throws IOException {
         return  Arrays.asList(reader.readLine().split(" "))
                 .stream()
