@@ -10,7 +10,7 @@ import java.util.Stack;
 import java.util.stream.Collectors;
 
 /*
-    run-report: 88084516
+    run-report: 88084533
     contest: 22781. Sprint 2 final B
     author: arpodymov
 
@@ -70,7 +70,7 @@ class Division implements BinaryOperation {
 }
 
 public class Calculator {
-    private final static Map<String, BinaryOperation> operationMap = Map.of(
+    private final static Map<String, BinaryOperation> operations = Map.of(
             "+", new Addition(),
             "-", new Subtraction(),
             "*", new Multiplication(),
@@ -78,19 +78,21 @@ public class Calculator {
     );
 
     private static boolean isOperation(String operand) {
-        return operationMap.containsKey(operand);
+        return operations.containsKey(operand);
     }
 
     private static int solve(List<String> operands) {
         Stack<String> stack = new Stack<>();
         for (String operand : operands) {
             if (!isOperation(operand)) {
+                // Подразумеваем, что запись корректна и считаем, что раз не операция - значит операнд = число.
                 stack.push(operand);
             }
             else {
                 int latest = Integer.parseInt(stack.pop());
                 int previous = Integer.parseInt(stack.pop());
-                int result = operationMap.get(operand).apply(previous, latest);
+                // Потенциально NPE, если в operationMap нет данного символа операции. По заданию гарантируется.
+                int result = operations.get(operand).apply(previous, latest);
                 stack.push(String.valueOf(result));
             }
         }
