@@ -70,7 +70,7 @@ class Division implements BinaryOperation {
 }
 
 public class Calculator {
-    private final static Map<String, BinaryOperation> operations = Map.of(
+    private static final Map<String, BinaryOperation> operations = Map.of(
             "+", new Addition(),
             "-", new Subtraction(),
             "*", new Multiplication(),
@@ -89,9 +89,9 @@ public class Calculator {
                 stack.push(operand);
             }
             else {
+                // Данный блок будет работать без исключений и NPE только для корректной исходной записи.
                 int latest = Integer.parseInt(stack.pop());
                 int previous = Integer.parseInt(stack.pop());
-                // Потенциально NPE, если в operationMap нет данного символа операции. По заданию гарантируется.
                 int result = operations.get(operand).apply(previous, latest);
                 stack.push(String.valueOf(result));
             }
