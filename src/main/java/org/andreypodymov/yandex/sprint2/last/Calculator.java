@@ -10,15 +10,14 @@ import java.util.Stack;
 import java.util.stream.Collectors;
 
 /*
-    run-report: 88084428
+    run-report: 88084516
     contest: 22781. Sprint 2 final B
     author: arpodymov
 
     -- ПРИНЦИП РАБОТЫ --
     Обратная польская нотация с использованием стека. Алгоритм реализован как указано в задании.
-    Known issues: интерфейс и имплементации и вообще все в одном файле (сделано для контеста),
-    операции не хранят приоритет (не нужно для уже подготовленной польской записи, но могло бы пригодиться
-    для перевода из обычной).
+    Known issues: все классы в одном файле (чисто для контеста), операции не хранят приоритет
+    (не нужно для уже подготовленной польской записи, но могло бы пригодиться для перевода из обычной).
 
     -- ДОКАЗАТЕЛЬСТВО КОРРЕКТНОСТИ --
     За один проход будут гарантровано обработаны все элементы исходной обратной польской записи. Это происходит
@@ -38,40 +37,39 @@ import java.util.stream.Collectors;
    Итого: O(N)
  */
 
+interface BinaryOperation {
+    int apply(int x, int y);
+}
+
+class Addition implements BinaryOperation {
+    @Override
+    public int apply(int x, int y) {
+        return x + y;
+    }
+}
+
+class Subtraction implements BinaryOperation {
+    @Override
+    public int apply(int x, int y) {
+        return x - y;
+    }
+}
+
+class Multiplication implements BinaryOperation {
+    @Override
+    public int apply(int x, int y) {
+        return x * y;
+    }
+}
+
+class Division implements BinaryOperation {
+    @Override
+    public int apply(int x, int y) {
+        return (int) Math.floor((double) x / y);
+    }
+}
+
 public class Calculator {
-
-    public interface BinaryOperation {
-        int apply(int x, int y);
-    }
-
-    public static class Addition implements BinaryOperation {
-        @Override
-        public int apply(int x, int y) {
-            return x + y;
-        }
-    }
-
-    public static class Subtraction implements BinaryOperation {
-        @Override
-        public int apply(int x, int y) {
-            return x - y;
-        }
-    }
-
-    public static class Multiplication implements BinaryOperation {
-        @Override
-        public int apply(int x, int y) {
-            return x * y;
-        }
-    }
-
-    public static class Division implements BinaryOperation {
-        @Override
-        public int apply(int x, int y) {
-            return (int) Math.floor((double) x / y);
-        }
-    }
-
     private final static Map<String, BinaryOperation> operationMap = Map.of(
             "+", new Addition(),
             "-", new Subtraction(),
