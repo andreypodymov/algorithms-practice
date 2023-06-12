@@ -7,7 +7,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /*
-    run-report: 88107528
+    run-report: 88156245
     contest: 22781. Sprint 2 final A
     author: arpodymov
 
@@ -48,19 +48,19 @@ class EmptyDequeException extends Exception {
 interface DequeInterface {
     void pushBack(int item) throws FullDequeException;
     void pushFront(int item) throws FullDequeException;
-    Integer popFront() throws EmptyDequeException;
-    Integer popBack() throws EmptyDequeException;
+    int popFront() throws EmptyDequeException;
+    int popBack() throws EmptyDequeException;
 }
 
 class Deque implements DequeInterface {
-    public Integer[] queue;
+    public int[] queue;
     private int head;
     private int tail;
     private int size;
     private int capacity;
 
     public Deque(int capacity) {
-        this.queue = new Integer[capacity];
+        this.queue = new int[capacity];
         this.capacity = capacity;
         this.head = 0;
         this.tail = 1;
@@ -84,21 +84,19 @@ class Deque implements DequeInterface {
     }
 
     @Override
-    public Integer popFront() throws EmptyDequeException {
+    public int popFront() throws EmptyDequeException {
         checkEmptyQueue();
         head = getNewIndex(head, 1);
-        Integer result = queue[head];
-        queue[head] = null;
+        int result = queue[head];
         size--;
         return result;
     }
 
     @Override
-    public Integer popBack() throws EmptyDequeException {
+    public int popBack() throws EmptyDequeException {
         checkEmptyQueue();
         tail = getNewIndex(tail, -1);
-        Integer result = queue[tail];
-        queue[tail] = null;
+        int result = queue[tail];
         size--;
         return result;
     }

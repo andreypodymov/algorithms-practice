@@ -3,14 +3,14 @@ package org.andreypodymov.yandex.sprint2.last;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import java.util.Stack;
 import java.util.stream.Collectors;
 
 /*
-    run-report: 88084533
+    run-report: 88156215
     contest: 22781. Sprint 2 final B
     author: arpodymov
 
@@ -82,7 +82,7 @@ public class Calculator {
     }
 
     private static int solve(List<String> operands) {
-        Stack<String> stack = new Stack<>();
+        ArrayDeque<String> stack = new ArrayDeque<>();
         for (String operand : operands) {
             if (!isOperation(operand)) {
                 // Подразумеваем, что запись корректна и считаем, что раз не операция - значит операнд = число.
