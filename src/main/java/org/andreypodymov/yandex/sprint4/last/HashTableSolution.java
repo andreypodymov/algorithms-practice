@@ -3,7 +3,7 @@ package org.andreypodymov.yandex.sprint4.last;
 import java.io.*;
 import java.util.Map;
 /*
-    run-report: 88553988
+    run-report: 88622465
     contest: 24414. Sprint 4 final B
     author: arpodymov
 ПРИНЦИП РАБОТЫ
@@ -112,19 +112,20 @@ public class HashTableSolution {
     }
 
     interface CLICommand {
-        void execute(HashTable deque, int key, Integer value, BufferedWriter writer) throws IOException;
+        @SuppressWarnings("unused")
+        void execute(HashTable deque, int key, int value, BufferedWriter writer) throws IOException;
     }
 
     static class PutCommand implements CLICommand {
         @Override
-        public void execute(HashTable deque, int key, Integer value, BufferedWriter writer) {
+        public void execute(HashTable deque, int key, int value, BufferedWriter writer) {
             deque.put(key, value);
         }
     }
 
     static class GetCommand implements CLICommand {
         @Override
-        public void execute(HashTable deque, int key, Integer value, BufferedWriter writer) throws IOException {
+        public void execute(HashTable deque, int key, int value, BufferedWriter writer) throws IOException {
             Integer result = deque.get(key);
             if (result != null) {
                 writelnInt(writer, result);
@@ -137,12 +138,11 @@ public class HashTableSolution {
 
     static class DeleteCommand implements CLICommand {
         @Override
-        public void execute(HashTable deque, int key, Integer value, BufferedWriter writer) throws IOException {
+        public void execute(HashTable deque, int key, int value, BufferedWriter writer) throws IOException {
             Integer result = deque.delete(key);
             if (result != null) {
                 writelnInt(writer, result);
-            }
-            else {
+            } else {
                 writelnString(writer, "None");
             }
         }
@@ -163,8 +163,9 @@ public class HashTableSolution {
             for (int i = 0; i < commandsSize; i++) {
                 String[] commandLine = readLine(reader);
                 CLICommand cliCommand = commandsMap.get(commandLine[0]);
-                Integer key = null;
-                Integer value = null;
+                // Дефольные значения. Используются не во всех коммандах
+                int key = -1;
+                int value = -1;
                 if (commandLine.length >= 2) {
                     key = Integer.parseInt(commandLine[1]);
                 }
